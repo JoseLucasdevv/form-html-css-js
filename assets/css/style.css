@@ -54,7 +54,16 @@ border-radius: 5px;
     position: relative;
     margin: 20px 0 40px;
     width: 300px;
+    display: flex;
+    align-items: center;
 }
+.content-img img {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+
 .form-control input{
     background-color: transparent;
     border: 0;
@@ -93,4 +102,8 @@ border-bottom-color:lightblue ;
     transition: 0.5ms, 1s;
 }
 
-
+img {
+    width: 20px;
+    height: 20px;
+    
+}

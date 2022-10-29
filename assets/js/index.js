@@ -1,47 +1,55 @@
-var Lucas = ["Lucas","Carlos","Luan",'SEILA','AMANDA','BRUNA'];
-
-/*Lucas.forEach((idx,lucas,maisum)=>{
-    console.log(idx,lucas,maisum);
-})*/
-        //
-
-/*Lucas.map((idx,lucas,maisum)=>{
-    console.log(idx,lucas,maisum);
-})*/
-
-
-        //Lucas[0].split("") Corta e separa Letra por Letra do indice do array que foi selecionado.
-console.log(Lucas[0].split(""))
-
-
-
-
-
-
+const img = document.querySelectorAll('.img')
+const input = document.querySelectorAll('.form-control .input')
+const btn = document.querySelector(".btn")
 const labels = document.querySelectorAll(".form-control label")
 
-/*labels.forEach((label) =>{
+
+input.forEach((inputs)=>{
+    if(inputs.value === ''){
+        img.forEach(index=>{
+            index.style.display = 'none';
+        });
+    }
+})
+
+btn.addEventListener('click',()=>{
+    input.forEach((inputs)=>{
+        if(inputs.value === ''){
+            img.forEach((item)=>{
+                item.style.display = 'block'
+                item.removeAttribute('src')
+                item.setAttribute('src','./assets/img/remove.png')
+                })
+        }else{
+            img.forEach((item)=>{
+                item.style.display = 'block'
+                item.removeAttribute('src')
+                item.setAttribute('src','./assets/img/check.png')
+             })
+            }
+        })
+})
+
+labels.forEach((label) =>{
     label.innerHTML = label.innerText
     .split("")
+    // .map(Primeiro Parãmetro é o item , segundo Paramêtro é o indice.)
     .map((letter,idx) =>`<span style="transition-delay: ${idx * 50}ms ">${letter}</span>`)
     .join("");
-    
+});
 
-});*/
+// function paraCadaLabel(label,index){
+//     const letras = label.innerText.split('')
+//     label.innerHTML = "";
 
-function paraCadaLabel(label,index){
-    const letras = label.innerText.split('')
-    label.innerHTML = "";
-
-    function paraCadaLetra(letra,index){
-        label.innerHTML +=`<span style="transition-delay:${index * 50}ms">${letra}</span>`
-    }
+//     function paraCadaLetra(letra,index){
+//         label.innerHTML +=`<span style="transition-delay:${index * 50}ms">${letra}</span>`
+//     }
      
-    letras.forEach(paraCadaLetra) 
-}
+//     letras.forEach(paraCadaLetra) 
+// }
 
-
-labels.forEach(paraCadaLabel)
+// labels.forEach(paraCadaLabel)
 
 /*for(const label of labels)
     label.innerHTML = [...label.innerText]
